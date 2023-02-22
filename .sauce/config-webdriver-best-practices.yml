@@ -1,0 +1,12 @@
+apiVersion: v1alpha
+kind: imagerunner
+region: ${SAUCE_REGION}
+suites:
+  - name: photon-js-webdriver
+    image: thaterikjames/sl-demo-docker.0.0.7
+    entrypoint: npm run --prefix webdriverio/webdriver/best-practices test.saucelabs
+    env:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_REGION: ${SAUCE_REGION}
+      BUILD_TYPE: "hosted"
