@@ -1,4 +1,5 @@
 # Add a new comment to trigger build.
+
 FROM node:16-alpine AS builder
 
 RUN apk update && apk add curl bash && rm -rf /var/cache/apk/*
