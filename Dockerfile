@@ -1,4 +1,4 @@
-# Add a new comment to trigger build.
+# Add a new comment to trigger build like this
 
 FROM node:16-alpine AS builder
 
