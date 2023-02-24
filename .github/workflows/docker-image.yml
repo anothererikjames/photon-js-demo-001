@@ -45,8 +45,14 @@ jobs:
           tags: |
             thaterikjames/photon-gitaction-js:0.0.5
   sauce:
-    - uses: saucelabs/saucectl-run-action@v3
-  env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Saucectl RUN Docker and Cloud
+        uses: saucelabs/saucectl-run-action@v2
+        env:
     GITHUB_TOKEN: ${{ github.token }}
   with:
     # Which version of saucectl.
@@ -63,6 +69,12 @@ jobs:
 
     # Relative path under $GITHUB_WORKSPACE to use as the new working directory.
     working-directory: ""
+
+    # An environment variable key-value pair that may be referenced in the tests executed by this command.
+    # Currently not supported by espresso/xcuitest.
+    env: |
+      MY_FIRST_VAR=VALUE
+      MY_SECOND_VAR=VALUE
 
     # Specify an alternative configuration file for this execution.
     # Default: .sauce/config.yml
@@ -93,4 +105,3 @@ jobs:
     # Includes the contents of the suite's console.log in the output of the command regardless of the test results. By default, the console log contents are shown for failed test suites only.
     # Default: false
     show-console-log: false
-
