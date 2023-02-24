@@ -43,7 +43,6 @@ jobs:
           push: true
           tags: |
             thaterikjames/photon-gitaction-js:0.0.5
-            
 main:
     runs-on: ubuntu-latest
     steps:
@@ -57,6 +56,6 @@ main:
           testing-environment: ""
           concurrency: 10
 
-      - run: saucectl run
+      - run: saucectl run --config .sauce/config-webdriver-best-practices.yml
         working-directory: v1
 
