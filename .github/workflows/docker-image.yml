@@ -58,5 +58,5 @@ jobs:
           concurrency: 1
           config-file: .sauce/config-webdriver-best-practices.yml
 
-      - run: saucectl run
+      - run: saucectl run .sauce/config-webdriver-best-practices.yml
         working-directory: 
