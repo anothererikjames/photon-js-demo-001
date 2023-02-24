@@ -1,6 +1,17 @@
 name: ci
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  pull_request:
+  push:
+    paths:
+      - "v1"
+    branches:
+      - main
+      
+env:
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
 
 jobs:
   docker:
@@ -32,3 +43,20 @@ jobs:
           push: true
           tags: |
             thaterikjames/photon-gitaction-js:0.0.5
+            
+main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Saucectl RUN Docker and Cloud
+        uses: saucelabs/saucectl-run-action@v2
+        with:
+          skip-run: true
+          testing-environment: ""
+          concurrency: 10
+
+      - run: saucectl run
+        working-directory: v1
+
