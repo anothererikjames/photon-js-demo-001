@@ -43,7 +43,7 @@ jobs:
           push: true
           tags: |
             thaterikjames/photon-gitaction-js:0.0.5
-main:
+  sauce:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
