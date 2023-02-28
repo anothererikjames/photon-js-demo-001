@@ -41,7 +41,7 @@ jobs:
           context: .
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platforms: linux/arm64,linux/amd64
+          platforms: linux/arm64
           push: true
           tags: |
             thaterikjames/photon-gitaction-js:0.0.5
