@@ -3,7 +3,7 @@ kind: imagerunner
 region: ${SAUCE_REGION}
 suites:
   - name: photon-js-webdriver
-    image: thaterikjames/sl-demo-docker.0.0.7
+    image: thaterikjames/photon-gitaction-js
     entrypoint: npm run --prefix webdriverio/webdriver/best-practices test.saucelabs
     env:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
